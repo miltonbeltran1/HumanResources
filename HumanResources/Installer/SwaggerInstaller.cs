@@ -7,7 +7,6 @@ namespace HumanResources.Installer
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-
             services.AddSwaggerGen(x =>
             {                
                 x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -17,9 +16,6 @@ namespace HumanResources.Installer
                     Description = "This API manage BAL"
                 });
             });
-
-        }
-
-     
+        }     
     }
 }

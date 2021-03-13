@@ -11,10 +11,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
-
 using Microsoft.Extensions.Configuration;
 using BAL.Models;
-using Microsoft.AspNetCore.Http;
 
 namespace BAL.Test
 {
@@ -71,7 +69,7 @@ namespace BAL.Test
         {
             // Arrange
             var idEmployee = 2;
-            mockMapper.Setup(x => x.Map<Employee, EmployeeDTO>(It.IsAny<Employee>())).Returns(employeesDTO.Find(x=>x.contractTypeName== "MonthlySalaryEmployee"));
+            mockMapper.Setup(x => x.Map<Employee, EmployeeDTO>(It.IsAny<Employee>())).Returns(employeesDTO.Find(x=>x.ContractTypeName== "MonthlySalaryEmployee"));
             IEmployeeService primeService = new EmployeeService(employeeRepository.Object, mockMapper.Object, calculateSalaryFactory);
 
             // Act
@@ -81,8 +79,8 @@ namespace BAL.Test
             Assert.NotNull(result.Result);
             Assert.True(result.Result.Success == true);
             Assert.True(result.Result.Messagge == "OK");
-            Assert.True(((EmployeeDTO)result.Result.Data).annualSalary == 600000);
-            Assert.True(((EmployeeDTO)result.Result.Data).id == 2);
+            Assert.True(((EmployeeDTO)result.Result.Data).AnnualSalary == 600000);
+            Assert.True(((EmployeeDTO)result.Result.Data).Id == 2);
 
         }
 
@@ -91,7 +89,7 @@ namespace BAL.Test
         {
             // Arrange
             var idEmployee = 1;
-            mockMapper.Setup(x => x.Map<Employee, EmployeeDTO>(It.IsAny<Employee>())).Returns(employeesDTO.Find(x => x.contractTypeName == "HourlySalaryEmployee"));
+            mockMapper.Setup(x => x.Map<Employee, EmployeeDTO>(It.IsAny<Employee>())).Returns(employeesDTO.Find(x => x.ContractTypeName == "HourlySalaryEmployee"));
             IEmployeeService primeService = new EmployeeService(employeeRepository.Object, mockMapper.Object, calculateSalaryFactory);
 
             // Act
@@ -101,8 +99,8 @@ namespace BAL.Test
             Assert.NotNull(result.Result);
             Assert.True(result.Result.Success == true);
             Assert.True(result.Result.Messagge == "OK");
-            Assert.True(((EmployeeDTO)result.Result.Data).annualSalary == 14400000);
-            Assert.True(((EmployeeDTO)result.Result.Data).id == 1);
+            Assert.True(((EmployeeDTO)result.Result.Data).AnnualSalary == 14400000);
+            Assert.True(((EmployeeDTO)result.Result.Data).Id == 1);
 
         }
 
@@ -128,20 +126,20 @@ namespace BAL.Test
             employeesDTO = new List<EmployeeDTO>{
                 new EmployeeDTO()
             {
-                id = 1,
-                name = "Camilo",
-                contractTypeName = "HourlySalaryEmployee",
-                hourlySalary = 10000,
-                monthlySalary = 50000,
-                role =  new RoleDTO { roleId = 1, roleDescription = "", roleName = "Administrator" }
+                Id = 1,
+                Name = "Camilo",
+                ContractTypeName = "HourlySalaryEmployee",
+                HourlySalary = 10000,
+                MonthlySalary = 50000,
+                Role =  new RoleDTO { RoleId = 1, RoleDescription = "", RoleName = "Administrator" }
             }, new EmployeeDTO()
             {
-                id = 2,
-                name = "Camila",
-                contractTypeName = "MonthlySalaryEmployee",
-                hourlySalary = 10000,
-                monthlySalary = 50000,
-                role =  new RoleDTO { roleId = 2, roleDescription = "", roleName = "Contractor" }
+                Id = 2,
+                Name = "Camila",
+                ContractTypeName = "MonthlySalaryEmployee",
+                HourlySalary = 10000,
+                MonthlySalary = 50000,
+                Role =  new RoleDTO { RoleId = 2, RoleDescription = "", RoleName = "Contractor" }
             }
             };
         }
@@ -151,20 +149,20 @@ namespace BAL.Test
             employees = Task.Run(() => new List<Employee>{
                 new Employee()
             {
-                id = 1,
-                name = "Camilo",
-                contractTypeName = "HourlySalaryEmployee",
-                hourlySalary = 10000,
-                monthlySalary = 50000,
-                role =  new Role { roleId = 1, roleDescription = "", roleName = "Administrator" }
+                Id = 1,
+                Name = "Camilo",
+                ContractTypeName = "HourlySalaryEmployee",
+                HourlySalary = 10000,
+                MonthlySalary = 50000,
+                Role =  new Role { RoleId = 1, RoleDescription = "", RoleName = "Administrator" }
             }, new Employee()
             {
-                id = 2,
-                name = "Camila",
-                contractTypeName = "MonthlySalaryEmployee",
-                hourlySalary = 10000,
-                monthlySalary = 50000,
-                role =  new Role { roleId = 2, roleDescription = "", roleName = "Contractor" }
+                Id = 2,
+                Name = "Camila",
+                ContractTypeName = "MonthlySalaryEmployee",
+                HourlySalary = 10000,
+                MonthlySalary = 50000,
+                Role =  new Role { RoleId = 2, RoleDescription = "", RoleName = "Contractor" }
             }
             });
         }

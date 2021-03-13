@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, empty } from 'rxjs';
 import { Employee } from './model/Employee';
 import {  HomeService } from './service/home.service';
 
@@ -22,7 +22,9 @@ export class HomeComponent {
   }
   getEmployees(){
     this.cleanData();
-    if(this.filter == undefined){
+    
+    if (this.filter == undefined || isNaN(this.filter)) {
+      this.filter = undefined;
       this.dataService.getAllEmployees().subscribe(result =>{
         if(result !== null){
           this.employees = result;

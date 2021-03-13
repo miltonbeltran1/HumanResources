@@ -4,9 +4,9 @@ using DAL.Domain.Entities;
 
 namespace BAL.Utility.Profiles
 {
-    public class RolProfile : Profile
+    public class RoleProfile : Profile
     {
-        public RolProfile()
+        public RoleProfile()
         {
             CreateMap<RoleDTO, Role>();
 

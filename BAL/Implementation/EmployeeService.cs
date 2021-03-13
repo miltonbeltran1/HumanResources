@@ -8,19 +8,15 @@ using DAL.Domain.Entities;
 using DAL.Repository;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BAL.Implementation
 {
     public class EmployeeService : IEmployeeService
-    {
-        
+    { 
         private readonly EmployeeRepository _repository;
         private readonly CalculateSalaryFactory _calculateSalaryFactory;
-
         private readonly IMapper _mapper;
-
         public EmployeeService(EmployeeRepository repository, IMapper mapper, CalculateSalaryFactory calculateSalaryFactory)
         {
             _repository = repository;
@@ -51,13 +47,10 @@ namespace BAL.Implementation
             try
             {
                 var employees = await _repository.GetAll();
-
-                var employee = employees.Find(item => item.id == filter);
-
+                var employee = employees.Find(item => item.Id == filter);
                 EmployeeDTO employeeResponse = _mapper.Map<Employee, EmployeeDTO>(employee);
                 if (employeeResponse != null)
                     CalculateSalary(employeeResponse);
-
                 return ResponseHelper.SetResponse(true, "OK", employeeResponse);
             }
             catch (Exception ex)
@@ -68,7 +61,7 @@ namespace BAL.Implementation
 
         private void CalculateSalary(EmployeeDTO employee)
         {
-            employee.annualSalary = _calculateSalaryFactory.GetSalaryFactory(employee.contractTypeName).Calculate(employee);
+            employee.AnnualSalary = _calculateSalaryFactory.GetSalaryFactory(employee.ContractTypeName).Calculate(employee);
         }
     }
 }

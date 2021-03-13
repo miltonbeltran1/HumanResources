@@ -1,15 +1,12 @@
 ﻿using BAL.Implementation;
 using BAL.Interfaces;
-using BAL.Utility.Factory;
 using BAL.Routes.V1;
+using BAL.Utility.Factory;
 using CommonUtility.Helpers;
 using DAL.Utility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HumanResources.Installer
 {
@@ -17,8 +14,6 @@ namespace HumanResources.Installer
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-
-
             services.AddControllers();
 
             services.AddHttpClient("EmployeeClient", client =>

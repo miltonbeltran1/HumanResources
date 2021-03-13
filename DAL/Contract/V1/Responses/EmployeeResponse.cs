@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DAL.Contract.V1.Responses
+﻿namespace DAL.Contract.V1.Responses
 {
     public class EmployeeResponse
     {
-        public long id { get; set; }
-        public string name { get; set; }
-        public string contractTypeName { get; set; }
-        public int roleId { get; set; }
-        public string roleName { get; set; }
-        public string roleDescription { get; set; }
-        public decimal hourlySalary { get; set; }
-        public decimal monthlySalary { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string ContractTypeName { get; set; }
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
+        public string RoleDescription { get; set; }
+        public decimal HourlySalary { get; set; }
+        public decimal MonthlySalary { get; set; }
 
     }
 }

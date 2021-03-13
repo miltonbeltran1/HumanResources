@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class EmployeeRepository : BaseRepository
+    public class EmployeeRepository
     {
         private readonly IConfiguration _configuration;
         private readonly IHttpClientFactory _clientFactory;
@@ -22,7 +22,7 @@ namespace DAL.Repository
             _mapperToDAO = mapperToDAO;
         }
 
-        public override async Task<List<Employee>> GetAll()
+        public virtual async Task<List<Employee>> GetAll()
         {
             var request = new HttpRequestMessage(HttpMethod.Get, _configuration.GetSection("EmployeeService:GetAllEmployees").Value);
             var response = await _client.SendAsync(request);

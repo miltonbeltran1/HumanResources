@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DAL.Domain.Entities
+﻿namespace DAL.Domain.Entities
 {
     public class Role
     {
-        public int roleId { get; set; }
-        public string roleName { get; set; }
-        public string roleDescription { get; set; }
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
+        public string RoleDescription { get; set; }
     }
 }

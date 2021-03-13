@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace HumanResources.Installer
 {
-
     public static class InstallerExtensions
     {
         public static void InstallServiceAssembly(this IServiceCollection services, IConfiguration configuration)

@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using BAL.Models;
 using DAL.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BAL.Utility.Profiles
 {
@@ -11,22 +8,21 @@ namespace BAL.Utility.Profiles
     {
         public EmployeeProfile()
         {
-
             CreateMap<EmployeeDTO, Employee>()
-               .ForMember(x => x.id, y => y.MapFrom(src => src.id))
-               .ForMember(x => x.name, y => y.MapFrom(src => src.name))
-               .ForMember(x => x.hourlySalary, y => y.MapFrom(src => src.hourlySalary))
-               .ForMember(x => x.monthlySalary, y => y.MapFrom(src => src.monthlySalary))
-               .ForMember(x => x.contractTypeName, y => y.MapFrom(src => src.contractTypeName))
-               .ForPath(x => x.role, y => y.MapFrom(src => src.role));
+               .ForMember(x => x.Id, y => y.MapFrom(src => src.Id))
+               .ForMember(x => x.Name, y => y.MapFrom(src => src.Name))
+               .ForMember(x => x.HourlySalary, y => y.MapFrom(src => src.HourlySalary))
+               .ForMember(x => x.MonthlySalary, y => y.MapFrom(src => src.MonthlySalary))
+               .ForMember(x => x.ContractTypeName, y => y.MapFrom(src => src.ContractTypeName))
+               .ForPath(x => x.Role, y => y.MapFrom(src => src.Role));
 
             CreateMap<Employee, EmployeeDTO>()
-               .ForMember(x => x.id, y => y.MapFrom(src => src.id))
-               .ForMember(x => x.name, y => y.MapFrom(src => src.name))
-               .ForMember(x => x.hourlySalary, y => y.MapFrom(src => src.hourlySalary))
-               .ForMember(x => x.monthlySalary, y => y.MapFrom(src => src.monthlySalary))
-               .ForMember(x => x.contractTypeName, y => y.MapFrom(src => src.contractTypeName))
-               .ForPath(x => x.role, y => y.MapFrom(src => src.role));
+               .ForMember(x => x.Id, y => y.MapFrom(src => src.Id))
+               .ForMember(x => x.Name, y => y.MapFrom(src => src.Name))
+               .ForMember(x => x.HourlySalary, y => y.MapFrom(src => src.HourlySalary))
+               .ForMember(x => x.MonthlySalary, y => y.MapFrom(src => src.MonthlySalary))
+               .ForMember(x => x.ContractTypeName, y => y.MapFrom(src => src.ContractTypeName))
+               .ForPath(x => x.Role, y => y.MapFrom(src => src.Role));
         }
     }
 }

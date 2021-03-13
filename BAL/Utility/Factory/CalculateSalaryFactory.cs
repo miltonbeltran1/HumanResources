@@ -1,7 +1,4 @@
-﻿using BAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace BAL.Utility.Factory
 {
@@ -14,13 +11,9 @@ namespace BAL.Utility.Factory
         }
         public  ICalculateSalary GetSalaryFactory(string contractTypeName)
         {
-            if (contractTypeName == "MonthlySalaryEmployee"){                
-                return (ICalculateSalary)_serviceProvider.GetService(typeof(CalculateSalaryMonthly));
-            }
-            else
-            {
-                return (ICalculateSalary)_serviceProvider.GetService(typeof(CalculateSalaryHourly));                
-            }
+            return contractTypeName == "MonthlySalaryEmployee" ?
+                (ICalculateSalary)_serviceProvider.GetService(typeof(CalculateSalaryMonthly)) :
+                (ICalculateSalary)_serviceProvider.GetService(typeof(CalculateSalaryHourly));
         }
     }
 }

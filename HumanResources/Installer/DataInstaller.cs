@@ -1,10 +1,6 @@
 ﻿using DAL.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HumanResources.Installer
 {
@@ -12,10 +8,8 @@ namespace HumanResources.Installer
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-         
             //Data Access
             services.AddScoped<EmployeeRepository>();
-
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using DAL.Contract.V1.Responses;
 using DAL.Domain.Entities;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DAL.Utility
 {
@@ -16,12 +14,12 @@ namespace DAL.Utility
             foreach (var item in listEmployees)
             {
                 Employee employee = new Employee();
-                employee.id = item.id;
-                employee.name = item.name;
-                employee.contractTypeName = item.contractTypeName;
-                employee.role = new Role { roleId = item.roleId, roleDescription = item.roleDescription, roleName = item.roleName };
-                employee.hourlySalary = item.hourlySalary;
-                employee.monthlySalary = item.monthlySalary;
+                employee.Id = item.Id;
+                employee.Name = item.Name;
+                employee.ContractTypeName = item.ContractTypeName;
+                employee.Role = new Role { RoleId = item.RoleId, RoleDescription = item.RoleDescription, RoleName = item.RoleName };
+                employee.HourlySalary = item.HourlySalary;
+                employee.MonthlySalary = item.MonthlySalary;
                 employees.Add(employee);
             }
             return employees;

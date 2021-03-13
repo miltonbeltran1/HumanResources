@@ -1,21 +1,16 @@
-﻿
-using CommonUtility.Exceptions;
+﻿using CommonUtility.Exceptions;
 using CommonUtility.Models.V1;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using System;
 using System.Net;
-using System.Threading.Tasks;
-
 
 namespace Exceptions
 {
     public static class ExceptionMiddlewareExtensions
     {
-
         public static void ConfigureExceptionHandler(this IApplicationBuilder app, ILogger logger)
         {
             app.UseExceptionHandler(appError =>
