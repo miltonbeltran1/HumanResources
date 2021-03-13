@@ -1,6 +1,6 @@
 # Project Title
 
-Employeee
+Employee
 
 ## Getting Started
 
@@ -8,12 +8,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Clean and rebuild visual studio solution.
-Use npm install to obtain the requisities to load the anguar project.
+* [Clean and rebuild visual studio solution.]
+* [Use npm install to obtain the requisities to load the angular project.]
 
-```
-Give examples
-```
+
 
 ## Running
 
